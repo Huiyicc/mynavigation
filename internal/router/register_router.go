@@ -2,9 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"hzer/internal/controller/api/captcha"
-	"hzer/internal/controller/api/tests"
-	"hzer/internal/controller/ws"
+	"hzer/internal/controller/api/public"
 	"hzer/internal/middleware"
 )
 
@@ -22,9 +20,11 @@ func NewHTTPRouter(r *gin.Engine) {
 	rootRouter.Use(middleware.Cors())
 	apiRouter.Use(middleware.Cors())
 
-	captcha.GinApi(apiRouter)
-	ws.GinApi(rootRouter)
-	tests.GinApi(apiRouter)
+	//captcha.GinApi(apiRouter)
+	//ws.GinApi(rootRouter)
+	//tests.GinApi(apiRouter)
+
+	public.GinApi(rootRouter)
 
 	//绑定静态资源
 	/*if isDebug {

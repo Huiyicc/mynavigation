@@ -24,3 +24,7 @@ Database:
     Host: ""
     Port: 6379
     Password: ""
+
+Servers:
+  - Url: "/"
+    Type: 302

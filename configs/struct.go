@@ -1,8 +1,9 @@
 package configs
 
 type Model struct {
-	App      App      `yaml:"App"`
-	Database Database `yaml:"Database"`
+	App      App       `yaml:"App"`
+	Database Database  `yaml:"Database"`
+	Servers  []Servers `yaml:"Servers"`
 }
 
 type App struct {
@@ -30,6 +31,7 @@ type Database struct {
 }
 
 type Redis struct {
+	Enable   bool   `yaml:"Enable"`
 	Host     string `yaml:"Host"`
 	Port     int    `yaml:"Port"`
 	Password string `yaml:"Password"`
@@ -44,4 +46,10 @@ type Mysql struct {
 	Password   string `yaml:"Password"`
 	Charset    string `yaml:"Charset"`
 	RedisCache bool   `yaml:"RedisCache"`
+}
+
+type Servers struct {
+	Url  string `yaml:"Url"`
+	Type int    `yaml:"Type"`
+	Name string `yaml:"Name"`
 }
